@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Rubik:wght@400;700&display=swap');
+
+:root {
+ --font-family-Rubik: 'Rubik', sans-serif;
+ --font-family-Poppins: 'Poppins', sans-serif;
+ --background-color: #0D0D0D;
+ --forocent-color: #BFC200;
+}
+body{
+     /* ff 3.6+ */
+    background:-moz-radial-gradient(circle at 50% 50%, rgba(13, 13, 13, 1) 94%, rgba(191, 194, 0, 1) 100%);
+
+    /* safari 5.1+,chrome 10+ */
+    background:-webkit-radial-gradient(circle at 50% 50%, rgba(13, 13, 13, 1) 94%, rgba(191, 194, 0, 1) 100%);
+
+    /* opera 11.10+ */
+    background:-o-radial-gradient(circle at 50% 50%, rgba(13, 13, 13, 1) 94%, rgba(191, 194, 0, 1) 100%);
+
+    /* ie 10+ */
+    background:-ms-radial-gradient(circle at 50% 50%, rgba(13, 13, 13, 1) 94%, rgba(191, 194, 0, 1) 100%);
+
+    /* global 92%+ browsers support */
+    background:radial-gradient(circle at 50% 50%, rgba(13, 13, 13, 1) 94%, rgba(191, 194, 0, 1) 100%);
+    background-repeat: no-repeat;
+    height: 100vh;
+    overflow: hidden;
+    color: white;
+}
+
