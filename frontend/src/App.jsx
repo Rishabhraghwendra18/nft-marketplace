@@ -1,13 +1,17 @@
 import { useState } from 'react'
 import { Navbar } from './components'
+import { CTA, CTAImage } from './section'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  
   return (
     <>
       <Navbar/>
+      <div className="hero-section">
+        <CTA/>
+        <CTAImage/>
+      </div>
     </>
   )
 }

@@ -1,0 +1,65 @@
+.cta-container {
+  flex: 1;
+  display: flex;
+  /* align-items: center;
+    justify-content: center; */
+  flex-direction: column;
+}
+.cta {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+  padding: 0 60px;
+}
+.cta-text {
+  font-size: 58px;
+  font-weight: 500;
+}
+.nft-text,
+.price {
+  color: var(--forocent-color);
+}
+.cta-headline-tagline {
+}
+.tagline {
+  color: rgba(230, 175, 46, 0.39);
+  font-weight: 300;
+  font-size: 20px;
+}
+.nft-price {
+  font-family: var(--font-family-Rubik);
+  font-weight: 500;
+  font-size: 32px;
+}
+.nft-community-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  background: rgba(45, 45, 45, 0.51);
+  box-shadow: 28px 21px 59px rgba(0, 0, 0, 0.11);
+  backdrop-filter: blur(33.5px);
+  /* Note: backdrop-filter has minimal browser support */
+
+  border-radius: 25px;
+  width: 549px;
+  padding: 1rem 1.5rem;
+  justify-items: center;
+  /* height: 141px; */
+}
+.stats h3{
+    font-weight: 600;
+    font-size: 24px;
+    margin-bottom: 0.3rem;
+}
+.stats h1{
+    font-family: var(--font-family-Rubik);
+    font-weight: 700;
+    font-size: 40px;
+}
+.cta-button{
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+}

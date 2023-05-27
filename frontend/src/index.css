@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Rubik:wght@400;700&display=swap');
-
+*{
+    margin: 0;
+    padding: 0;
+}
 :root {
  --font-family-Rubik: 'Rubik', sans-serif;
  --font-family-Poppins: 'Poppins', sans-serif;
@@ -25,5 +28,9 @@ body{
     height: 100vh;
     overflow: hidden;
     color: white;
+    font-family: var(--font-family-Poppins);
+}
+#root{
+    height: 100%;
 }
 
