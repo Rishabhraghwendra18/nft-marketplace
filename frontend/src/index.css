@@ -10,20 +10,21 @@
  --forocent-color: #BFC200;
 }
 body{
+    background: rgba(13, 13, 13, 1);
      /* ff 3.6+ */
-    background:-moz-radial-gradient(circle at 50% 50%, rgba(13, 13, 13, 1) 94%, rgba(191, 194, 0, 1) 100%);
+    /* background:-moz-radial-gradient(circle at 50% 50%, rgba(13, 13, 13, 1) 94%, rgba(191, 194, 0, 1) 100%); */
 
     /* safari 5.1+,chrome 10+ */
-    background:-webkit-radial-gradient(circle at 50% 50%, rgba(13, 13, 13, 1) 94%, rgba(191, 194, 0, 1) 100%);
+    /* background:-webkit-radial-gradient(circle at 50% 50%, rgba(13, 13, 13, 1) 94%, rgba(191, 194, 0, 1) 100%); */
 
     /* opera 11.10+ */
-    background:-o-radial-gradient(circle at 50% 50%, rgba(13, 13, 13, 1) 94%, rgba(191, 194, 0, 1) 100%);
+    /* background:-o-radial-gradient(circle at 50% 50%, rgba(13, 13, 13, 1) 94%, rgba(191, 194, 0, 1) 100%); */
 
     /* ie 10+ */
-    background:-ms-radial-gradient(circle at 50% 50%, rgba(13, 13, 13, 1) 94%, rgba(191, 194, 0, 1) 100%);
+    /* background:-ms-radial-gradient(circle at 50% 50%, rgba(13, 13, 13, 1) 94%, rgba(191, 194, 0, 1) 100%); */
 
     /* global 92%+ browsers support */
-    background:radial-gradient(circle at 50% 50%, rgba(13, 13, 13, 1) 94%, rgba(191, 194, 0, 1) 100%);
+    /* background:radial-gradient(circle at 50% 50%, rgba(13, 13, 13, 1) 94%, rgba(191, 194, 0, 1) 100%); */
     background-repeat: no-repeat;
     height: 100vh;
     overflow: hidden;

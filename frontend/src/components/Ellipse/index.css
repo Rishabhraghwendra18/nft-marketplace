@@ -1,0 +1,7 @@
+.ellipse {
+    width: 200px;
+    height: 100px;
+    border-radius: 50%;
+    background: rgba(191, 194, 0, 0.34);
+    filter: blur(41px);
+  }

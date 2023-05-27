@@ -1,5 +1,5 @@
 import React from "react";
-import {AppButton} from "../../components";
+import {AppButton,Ellipse} from "../../components";
 import "./index.css";
 
 function CTA() {
@@ -23,6 +23,7 @@ function CTA() {
         <div className="cta-headline-tagline">
           <h1 className="cta-text">
             Be one of the first 3 people to buy this{" "}
+            <Ellipse style={{position:'absolute',top:0,right:'3rem'}}/>
             <span className="nft-text">NFT</span>
           </h1>
           <h2 className="tagline">

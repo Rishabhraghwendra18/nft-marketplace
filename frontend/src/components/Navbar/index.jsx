@@ -13,7 +13,7 @@ const CustomButton = styled(Button)(({ theme }) => ({
 
 const Navbar = () => {
   return (
-    <AppBar position="static" style={{ backgroundColor: 'transparent', boxShadow: 'none' }}>
+    <AppBar position="static" style={{ backgroundColor: 'transparent', boxShadow: 'none',paddingTop:'1rem' }}>
       <Toolbar>
         <div style={{ flexGrow: 1 }}>
           {/* Your navbar logo */}

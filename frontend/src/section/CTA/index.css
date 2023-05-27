@@ -16,6 +16,7 @@
 .cta-text {
   font-size: 58px;
   font-weight: 500;
+  position: relative;
 }
 .nft-text,
 .price {
