@@ -6,8 +6,9 @@ const CustomButton = styled(Button)(({ theme }) => ({
     fontFamily:'Poppins',
     fontWeight:500,
     fontSize:'20px',
-    backgroundColor:'#BFC200',
-    color:'white',
+    backgroundColor:'transparent',
+    border:'2px solid #BFC200',
+    color:'#BFC200',
     borderRadius:10
  }));
 

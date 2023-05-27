@@ -1,3 +1,62 @@
-.cta-image-container{
-    flex: 1;
+.cta-image-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+.image-main-div{
+    position: relative;
+}
+.image-main-div img{
+    position: absolute;
+    z-index: 10;
+    top: -1rem;
+    left: -3rem;
+}
+.middle-div {
+  width: 427.23px;
+  height: 528.56px;
+  background: rgba(61, 61, 61, 0.37);
+  /* box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
+  /* box-shadow: 0 0 10px rgba(93, 95, 0, 1), inset 0 0 10px rgba(135, 135, 135, 0); */
+  box-shadow: 10px 10px 0px 0 rgba(93, 95, 0, 1);
+  filter: blur(9.5px);
+  border-radius: 22px;
+  transform: matrix(1, 0, -0.08, 1, 0, 0);
+  /* border: 10px solid red; */
+  position: relative;
+}
+/* .middle-div::before {
+  content: url("../../assets/nft-cta-image.png");
+  width: 427.23px;
+  height: 528.56px;
+  filter: blur(9.5px);
+  background: url("../../assets/nft-cta-image.png");
+  background-size: cover;
+  position: absolute;
+  left: -2rem;
+  top: -1rem;
+  filter: drop-shadow(24px 19px 32px rgba(0, 188, 197, 0.01));
+  border-radius: 251px;
+  transform: matrix(1, 0, -0.1, 1, 0, 0);
+} */
+/* .middle-div::after {
+  content: "";
+  position: absolute;
+  left: -1rem;
+  top: 1rem;
+  width: 427.23px;
+  height: 528.56px;
+  border: 10px solid white;
+  border-style: solid;
+  border-width: 1rem;
+  border-image: 
+    linear-gradient(
+      to bottom, 
+      rgba(93, 95, 0, 1), 
+      rgba(135, 135, 135, 0)
+    ) 1 100%;
+  filter: drop-shadow(22px 23px 12px rgba(36, 36, 36, 0.25));
+  border-radius: 22px;
+  transform: matrix(1, 0, -0.04, 1, 0, 0);
+} */
