@@ -1,0 +1,18 @@
+.collections-root-div{
+    height: 50vh;
+}
+.collections-content{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 2rem;
+}
+.collections-content h1{
+    text-align: center;
+}
+.collections-card{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    place-items: center;
+    gap: 2rem;
+}
