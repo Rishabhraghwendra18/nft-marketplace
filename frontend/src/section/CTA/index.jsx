@@ -1,8 +1,12 @@
 import React,{useState} from "react";
+import { useSnapshot } from "valtio";
+import state from "../../store";
+import { connectWallet } from "../../utils";
 import {AppButton,Ellipse,AppModal} from "../../components";
 import "./index.css";
 
 function CTA() {
+  const snap = useSnapshot(state);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const stats = [
     {
@@ -20,6 +24,9 @@ function CTA() {
   ];
   const handleOpenModal = ()=>{
     setIsModalOpen(true);
+    if(!snap.walletAddress){
+      connectWallet();
+    }
   }
   const handleCloseModal = () =>{
     setIsModalOpen(false);

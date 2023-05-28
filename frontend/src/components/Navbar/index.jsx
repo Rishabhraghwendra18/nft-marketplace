@@ -1,6 +1,9 @@
 import React from 'react';
 import { AppBar, Toolbar, Button } from '@mui/material';
 import { alpha, styled } from "@mui/material/styles";
+import { useSnapshot } from 'valtio';
+import state from '../../store';
+import { connectWallet } from '../../utils';
 import AppButton from '../Button';
 import Logo from "../../assets/Variant2.png";
 import './index.css';
@@ -12,6 +15,7 @@ const CustomButton = styled(Button)(({ theme }) => ({
 }));
 
 const Navbar = () => {
+  const snap = useSnapshot(state);
   return (
     <AppBar position="static" style={{ backgroundColor: 'transparent', boxShadow: 'none',paddingTop:'1rem' }}>
       <Toolbar>
@@ -26,7 +30,9 @@ const Navbar = () => {
           <CustomButton color="inherit">Community</CustomButton>
           <CustomButton color="inherit">About</CustomButton>
           </div>
-          <AppButton>Connect Wallet</AppButton>
+          <AppButton onClick={connectWallet}>{
+            snap.walletAddress ?`${snap.walletAddress?.slice(0,5)}...${snap.walletAddress?.slice(-3)}` : "Connect Wallet"
+          }</AppButton>
         </div>
       </Toolbar>
     </AppBar>

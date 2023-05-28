@@ -1,9 +1,12 @@
-import React from "react";
+import React,{useState} from "react";
 import {
   Modal,
   Box,
 } from "@mui/material";
 import { alpha, styled } from "@mui/material/styles";
+import { NFTStorage, File } from 'nft.storage';
+import { useSnapshot } from "valtio";
+import state from "../../store";
 import FormItem from "../FormItem";
 import AppButton from "../Button";
 import "./index.css";
@@ -22,14 +25,40 @@ const style = {
   color:'white',
   borderRadius:'10px'
 };
-
+const nftstorage = new NFTStorage({ token: import.meta.env.VITE_NFT_STORAGE_API_KEY })
 const CustomModal = styled(Modal)(({ theme }) => ({
 }));
 
 function AppModal({ open, handleClose }) {
-  const handleFormSubmit = async (event)=>{
+  const snap = useSnapshot(state);
+const [isUploadingToIPFS, setIsUploadingToIPFS] = useState(false);
+  
+const handleFormSubmit = async (event)=>{
     event.preventDefault();
-    console.log("form submit")
+    setIsUploadingToIPFS(true);
+    state.isUploadingToIPFS=true;
+    console.log("form submit");
+    const form = event.target;
+    const formData = new FormData(form);
+
+    const name = formData.get('name');
+    const description = formData.get('description');
+    const file = formData.get('file');
+    
+    try {
+      const response = await nftstorage.store({
+        image:file,
+        name,
+        description,
+      });
+      console.log("uploaded: ",response);
+      setIsUploadingToIPFS(false);
+      state.isUploadingToIPFS=false;
+    } catch (error) {
+      console.log("error while uploading: ",error);
+      setIsUploadingToIPFS(false);
+      state.isUploadingToIPFS=false;
+    }
   }
   return (
     <CustomModal
@@ -47,7 +76,7 @@ function AppModal({ open, handleClose }) {
               <textarea name="description" id="description" rows="4" cols="50"></textarea>
             </FormItem>
             <FormItem label={"Choosle File"} inputType={"file"} inputId={"file"} accept={"image/*"}/>
-            <AppButton type={"submit"}>Mint</AppButton>
+            <AppButton type={"submit"} loading={isUploadingToIPFS}>Mint</AppButton>
           </form>
         </div>
       </Box>
