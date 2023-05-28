@@ -1,8 +1,9 @@
-import React from "react";
-import {AppButton,Ellipse} from "../../components";
+import React,{useState} from "react";
+import {AppButton,Ellipse,AppModal} from "../../components";
 import "./index.css";
 
 function CTA() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const stats = [
     {
       statsName:'Collections',
@@ -16,7 +17,13 @@ function CTA() {
       statsName:'Community',
       value:'15K+'
     },
-  ]
+  ];
+  const handleOpenModal = ()=>{
+    setIsModalOpen(true);
+  }
+  const handleCloseModal = () =>{
+    setIsModalOpen(false);
+  }
   return (
     <div className="cta-container">
       <div className="cta">
@@ -32,7 +39,7 @@ function CTA() {
           </h2>
           <div className="cta-button">
           <h2 className="nft-price">the price of <br/>this NFT : <s>$23</s> <span className="price">$18</span></h2>
-          <AppButton style={{height:'50px',marginTop:'auto'}}>Mint Now</AppButton>
+          <AppButton style={{height:'50px',marginTop:'auto'}} onClick={handleOpenModal}>Mint Now</AppButton>
           </div>
         </div>
         <div className="nft-community-stats">
@@ -44,6 +51,7 @@ function CTA() {
           ))}
         </div>
       </div>
+      <AppModal open={isModalOpen} handleClose={handleCloseModal}/>
     </div>
   );
 }

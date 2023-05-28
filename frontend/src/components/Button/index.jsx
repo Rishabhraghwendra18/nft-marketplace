@@ -12,9 +12,9 @@ const CustomButton = styled(Button)(({ theme }) => ({
     borderRadius:10
  }));
 
-function AppButton({children,style,onClick=()=>{}}) {
+function AppButton({children,style,onClick=()=>{},type}) {
   return (
-    <CustomButton sx={style} onClick={onClick}>{children}</CustomButton>
+    <CustomButton sx={style} onClick={onClick} type={type}>{children}</CustomButton>
   )
 }
 

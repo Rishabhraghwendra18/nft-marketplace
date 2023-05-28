@@ -1,0 +1,19 @@
+.modal-modal-title{
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 2rem;
+}
+.formItems{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+#description{
+    font-family: var(--font-family-Poppins);
+    background-color: rgba(128, 128, 128,0.1);
+    border: 1px solid rgba(128, 128, 128,0.1);
+    color: white;
+    font-weight: 400;
+    padding: 0.6rem;
+    border-radius: 5px;
+}

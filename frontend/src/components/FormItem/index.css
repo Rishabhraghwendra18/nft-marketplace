@@ -1,0 +1,18 @@
+.form{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+.form input{
+    flex: 1;
+    font-family: var(--font-family-Poppins);
+    background-color: rgba(128, 128, 128,0.1);
+    border: 1px solid rgba(128, 128, 128,0.1);
+    color: white;
+    font-weight: 400;
+    padding: 0.6rem;
+    border-radius: 5px;
+}
+.form label{
+    font-weight: 400;
+}
