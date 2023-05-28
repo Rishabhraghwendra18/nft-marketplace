@@ -29,16 +29,16 @@ function CTA() {
       <div className="cta">
         <div className="cta-headline-tagline">
           <h1 className="cta-text">
-            Be one of the first 3 people to buy this{" "}
+          Free NFT Minting Hub: Empowering Beginners,{" "}
             <Ellipse style={{position:'absolute',top:0,right:'3rem'}}/>
-            <span className="nft-text">NFT</span>
+            <span className="nft-text">Igniting Digital Creativity</span>
           </h1>
           <h2 className="tagline">
             {" "}
-            and get a 10$ bonus along with the purchase
+            Unleash Your Artistic Potential, Transforming Ideas into Immutable Tokens!
           </h2>
           <div className="cta-button">
-          <h2 className="nft-price">the price of <br/>this NFT : <s>$23</s> <span className="price">$18</span></h2>
+          <h2 className="nft-price">the price of <br/>minting : <s>$23</s> <span className="price">$0</span></h2>
           <AppButton style={{height:'50px',marginTop:'auto'}} onClick={handleOpenModal}>Mint Now</AppButton>
           </div>
         </div>
