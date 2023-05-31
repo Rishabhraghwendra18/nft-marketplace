@@ -6,6 +6,8 @@ import {
 import { alpha, styled } from "@mui/material/styles";
 import { NFTStorage, File } from 'nft.storage';
 import { useSnapshot } from "valtio";
+import {ethers} from 'ethers';
+import contractABI from '../../contractABI/NFTMarket.json';
 import state from "../../store";
 import FormItem from "../FormItem";
 import AppButton from "../Button";
@@ -32,7 +34,26 @@ const CustomModal = styled(Modal)(({ theme }) => ({
 function AppModal({ open, handleClose }) {
   const snap = useSnapshot(state);
 const [isUploadingToIPFS, setIsUploadingToIPFS] = useState(false);
-  
+const mintNFT = async (tokenURI)=>{
+  state.isMinting=true;
+  const contractAddress = import.meta.env.VITE_SMART_CONTRACT_ADDRESS;
+  console.log("abi: ",contractABI.abi);
+  const contract = new ethers.Contract(ethers.utils.getAddress('0x269660075b88939031aF386CD55db698bC7B2D47'),contractABI.abi,snap.signer);
+  console.log("contract: ",contract.mint);
+  // debugger;
+  console.log("tokenURI: ",tokenURI);
+  try {
+    const mint = await contract.mint('abced');
+    // console.log("mint: ",mint)
+    await mint.wait();
+    console.log("minted successfully!! ");
+    state.isMinting=false;
+    state.isMinted=true;
+  } catch (error) {
+    console.log("Error while minting! ",error);
+    state.isMinting=false;
+  }
+}
 const handleFormSubmit = async (event)=>{
     event.preventDefault();
     setIsUploadingToIPFS(true);
@@ -54,6 +75,7 @@ const handleFormSubmit = async (event)=>{
       console.log("uploaded: ",response);
       setIsUploadingToIPFS(false);
       state.isUploadingToIPFS=false;
+      await mintNFT(response.ipnft);
     } catch (error) {
       console.log("error while uploading: ",error);
       setIsUploadingToIPFS(false);

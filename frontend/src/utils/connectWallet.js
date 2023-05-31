@@ -3,6 +3,8 @@ import { ethers } from 'ethers';
 
 const connectWallet = async () =>{
     if(window.ethereum){
+      // ethers.js way
+
       const walletAddress = await window.ethereum.request({ method: 'eth_requestAccounts' });
       const provider = new ethers.providers.Web3Provider(window.ethereum);
       const signer = provider.getSigner();

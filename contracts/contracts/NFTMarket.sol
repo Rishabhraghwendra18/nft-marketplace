@@ -11,14 +11,14 @@ contract NFTMarket is ERC721URIStorage {
 
     constructor() ERC721("NFT.Market", "NFTM") {}
 
-    function mint(address _address, string memory tokenURI)
+    function mint(string memory tokenURI)
         public
         returns (uint256)
     {
         uint256 newItemId = _tokenIds.current();
-        _mint(_address, newItemId);
+        _mint(msg.sender, newItemId);
         _setTokenURI(newItemId, tokenURI);
-        addressToTokenURI[_address] = tokenURI;
+        addressToTokenURI[msg.sender] = tokenURI;
 
         _tokenIds.increment();
         return newItemId;

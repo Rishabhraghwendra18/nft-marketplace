@@ -16,6 +16,11 @@ const CustomButton = styled(Button)(({ theme }) => ({
 
 const Navbar = () => {
   const snap = useSnapshot(state);
+  // const connectWallet = async () =>{
+  //   if(snap.walletConnect !== undefined){
+  //     await snap.walletConnect();
+  //   }
+  // }
   return (
     <AppBar position="static" style={{ backgroundColor: 'transparent', boxShadow: 'none',paddingTop:'1rem' }}>
       <Toolbar>

@@ -22,10 +22,11 @@ function CTA() {
       value:'15K+'
     },
   ];
-  const handleOpenModal = ()=>{
+  const handleOpenModal = async ()=>{
     setIsModalOpen(true);
-    if(!snap.walletAddress){
+    if(!snap.walletAddress !== undefined){
       connectWallet();
+      // await snap.walletConnect();
     }
   }
   const handleCloseModal = () =>{

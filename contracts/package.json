@@ -4,7 +4,7 @@
     "hardhat": "^2.14.0"
   },
   "scripts": {
-    "deploy:sepolia":"npx hardhat run scripts/deploy.js --network sepolia"
+    "deploy:sepolia":"npx hardhat run scripts/deploy.js --network sepolia && cp ./artifacts/contracts/NFTMarket.sol/NFTMarket.json ../frontend/src/contractABI"
   },
   "dependencies": {
     "@openzeppelin/contracts": "^4.9.0",
