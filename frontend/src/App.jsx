@@ -1,8 +1,7 @@
-import React,{ useEffect } from 'react'
+import React,{ useEffect,useState } from 'react'
 import {Snackbar} from '@mui/material';
 import MuiAlert from '@mui/material/Alert';
 import { useSnapshot } from 'valtio';
-import { metamaskWallet,useConnect,useUser } from "@thirdweb-dev/react";
 import state from './store';
 import { Navbar,Ellipse } from './components'
 import { CTA, CTAImage,Collections } from './section'
@@ -13,46 +12,9 @@ const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
 
-const metamaskConfig = metamaskWallet();
-
 function App() {
-  // const connect = useConnect();
-  // const {user} = useUser();
   const snap = useSnapshot(state);
 
-  // useEffect(()=>{
-  //   state.walletConnect = async ()=>{
-  //     await connect(metamaskConfig,{chainId:'11155111'});
-  //     state.walletAddress = user.address;
-  //   }
-  // },[]);
-  const collections = [
-    {
-      image:Logo,
-      name:'dummy',
-      description:'dummy dummy'
-    },
-    {
-      image:Logo,
-      name:'dummy',
-      description:'dummy dummy'
-    },
-    {
-      image:Logo,
-      name:'dummy',
-      description:'dummy dummy'
-    },
-    {
-      image:Logo,
-      name:'dummy',
-      description:'dummy dummy'
-    },
-    {
-      image:Logo,
-      name:'dummy',
-      description:'dummy dummy'
-    },
-  ]
   return (
     <>
       <Ellipse style={{position:'absolute',top:'-0.7rem',left:'-0.6rem'}}/>
@@ -61,8 +23,8 @@ function App() {
         <CTA/>
         <CTAImage/>
       </div>
-      {collections.length > 0 && (
-        <Collections collections={collections}/>
+      {snap.collections.length > 0 && (
+        <Collections collections={snap.collections}/>
       )}
       <Ellipse style={{position:'absolute',bottom:'-4rem',right:'-4rem'}}/>
 

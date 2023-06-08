@@ -17,7 +17,7 @@ function AppCard({ styles, image, name, description }) {
       <div className="card-container">
         <CardMedia
           component="img"
-          sx={{ height: "3rem",objectFit:'contain' }}
+          sx={{ height: "10rem",objectFit:'contain' }}
           image={image}
         />
         <CardContent
@@ -26,7 +26,7 @@ function AppCard({ styles, image, name, description }) {
             ":last-child": { padding: 0 },
             display: "flex",
             flexDirection: "column",
-            gap: "0.7rem",
+            gap: "0.1rem",
           }}
         >
           <div className="name flex">

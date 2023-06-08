@@ -8,6 +8,7 @@ const state = proxy({
     isMinting:false,
     isMinted:false,
     walletConnect:undefined,
+    collections:[]
 });
 
 export default state;
