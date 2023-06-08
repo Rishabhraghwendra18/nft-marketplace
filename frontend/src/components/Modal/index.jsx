@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React,{useState,useEffect} from "react";
 import {
   Modal,
   Box,
@@ -34,16 +34,33 @@ const CustomModal = styled(Modal)(({ theme }) => ({
 function AppModal({ open, handleClose }) {
   const snap = useSnapshot(state);
 const [isUploadingToIPFS, setIsUploadingToIPFS] = useState(false);
+const [contract, setContract] = useState();
+// useEffect(()=>{
+//   if( snap.signer && Object.keys(snap.signer).length !== 0){
+//     const contractAddress = import.meta.env.VITE_SMART_CONTRACT_ADDRESS;
+//     const provider = new ethers.providers.Web3Provider(window.ethereum);
+//     const signer = provider.getSigner();
+//     console.log("abi: ",contractABI.abi);
+//     const contract = new ethers.Contract('0x269660075b88939031aF386CD55db698bC7B2D47',contractABI.abi,snap.signer);
+//     console.log("contract: ",contract.mint);
+//     setContract(contract);
+//   }
+// },[]);
+
+
 const mintNFT = async (tokenURI)=>{
   state.isMinting=true;
-  const contractAddress = import.meta.env.VITE_SMART_CONTRACT_ADDRESS;
-  console.log("abi: ",contractABI.abi);
-  const contract = new ethers.Contract(ethers.utils.getAddress('0x269660075b88939031aF386CD55db698bC7B2D47'),contractABI.abi,snap.signer);
-  console.log("contract: ",contract.mint);
   // debugger;
-  console.log("tokenURI: ",tokenURI);
+  const contractAddress = import.meta.env.VITE_SMART_CONTRACT_ADDRESS;
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    const signer = provider.getSigner();
+    console.log("abi: ",contractABI.abi);
+    const contract = new ethers.Contract(contractAddress,contractABI.abi,signer);
+    console.log("contract: ",contract.mint);
+
+  console.log("tokenURI: ",`"https://ipfs.io/ipfs/${tokenURI}`);
   try {
-    const mint = await contract.mint('abced');
+    const mint = await contract.mint(`https://ipfs.io/ipfs/${tokenURI}/metadata.json`);
     // console.log("mint: ",mint)
     await mint.wait();
     console.log("minted successfully!! ");
