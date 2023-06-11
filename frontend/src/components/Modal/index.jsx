@@ -33,14 +33,14 @@ const CustomModal = styled(Modal)(({ theme }) => ({}));
 function AppModal({ open, handleClose }) {
   const snap = useSnapshot(state);
   const [isUploadingToIPFS, setIsUploadingToIPFS] = useState(false);
-  const provider = new ethers.providers.Web3Provider(window.ethereum);
-  const signer = provider.getSigner();
-  const contractAddress = import.meta.env.VITE_SMART_CONTRACT_ADDRESS;
 
   const replaceIPFSURI = (uri) => {
     return "https://ipfs.io/ipfs/" + uri.replace(/^ipfs:\/\//, "");
   };
   const getUserNFTCollection = async () => {
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+  const signer = provider.getSigner();
+  const contractAddress = import.meta.env.VITE_SMART_CONTRACT_ADDRESS;
     const contract = new ethers.Contract(
       contractAddress,
       contractABI.abi,
@@ -60,6 +60,9 @@ function AppModal({ open, handleClose }) {
     }
   };
   const mintNFT = async (tokenURI) => {
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+  const signer = provider.getSigner();
+  const contractAddress = import.meta.env.VITE_SMART_CONTRACT_ADDRESS;
     state.isMinting = true;
     const contract = new ethers.Contract(
       contractAddress,

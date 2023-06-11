@@ -14,9 +14,34 @@ const Alert = React.forwardRef(function Alert(props, ref) {
 
 function App() {
   const snap = useSnapshot(state);
+  const [showMobileWarning, setShowMobileWarning] = useState(false);
+
+  const handleResize = () =>{
+    console.log(window.innerWidth)
+    if(window.innerWidth <=862){
+      setShowMobileWarning(true);
+    }
+    else{
+      setShowMobileWarning(false);
+    }
+  }
+  useEffect(() => {
+    window.addEventListener('resize', handleResize);
+    
+    // Cleanup the event listener on component unmount
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   return (
     <>
+      {showMobileWarning ? (
+      <div className="mobile-screen">
+        <b>Not available on Mobile, tablet screens</b>
+      </div>
+      ):(
+        <>
       <Ellipse style={{position:'absolute',top:'-0.7rem',left:'-0.6rem'}}/>
       <Navbar/>
       <div className="hero-section">
@@ -45,6 +70,8 @@ function App() {
           NFT successfully minted
         </Alert>
       </Snackbar>
+        </>
+      )}
     </>
   )
 }

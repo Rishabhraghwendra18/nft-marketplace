@@ -3,3 +3,11 @@
     flex-direction: row;
     height: 100%;
 }
+.mobile-screen{
+    display: flex;
+    color: white;
+    background-color: var(--background-color);
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
